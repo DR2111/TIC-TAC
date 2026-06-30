@@ -1,0 +1,10 @@
+
+
+/* Formatemos la pagina y le agregamos el user-select */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    user-select: none; /* Nos ayuda a que ningun elemento de nuestra pagina se puede seleccionar */
+}
