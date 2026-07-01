@@ -1,4 +1,21 @@
-
+/* Variables que vamos a usar para darle estilo a nuestro juego */
+:root {
+    --color-letras: white;
+    --color-fondo: #251652;
+    --color-fondo-jugadores: #2c2252;
+    --color-hover-jugadores: #5a4c8d;
+    --color-jugadorX: #1892ea;
+    --color-jugadorO: #fa0909;
+    --tamano-header: 235px;
+    --margen-abajo-header: 30px;
+    --ancho-alto-jugadores: 60px;
+    --tamano-letra-jugador: 30px;
+    --curva-borde-jugador: 12px;
+    --ceparacion-celdas: 12px;
+    --tamano-fichas: 36px;
+    --tammano-boton: 235px;
+    --espacio-contenido-boton:8px;
+}
 
 /* Formatemos la pagina y le agregamos el user-select */
 * {
@@ -7,4 +24,103 @@
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     user-select: none; /* Nos ayuda a que ningun elemento de nuestra pagina se puede seleccionar */
+    color: var(--color-letras);
+}
+
+/* Estilos del main en donde se aloja todo el contenedor de nuestro juego */
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color-fondo);
+}
+
+/* Estilos de distribucion de espacio de nuestros jugadores */
+#cabecera{
+    display: flex;
+    width: var(--tamano-header);
+    justify-content: space-between;
+    margin-bottom: var(--margen-abajo-header);
+}
+
+/* Estilos de decoparicon de los jugadores */
+.jugadores {
+    display: flex;
+    width: var(--ancho-alto-jugadores);
+    height: var(--ancho-alto-jugadores);
+    background: var(--color-fondo-jugadores);
+    justify-content: center;
+    align-items: center;
+    font-size: var(--tamano-letra-jugador);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: var(--curva-borde-jugador);
+    border: solid 4px var(--color-fondo-jugadores);
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.jugadores:hover {
+    border: solid 4px var(--color-hover-jugadores);
+}
+
+/* Estilos que se le dan al momento de que la persona elige con quien va a jugar */
+.jugadorActivado {
+    opacity: 1;
+    border: solid 4px var(--color-hover-jugadores);
+}
+
+/* Color distintivo del jugador X */
+#jugadorX {
+    color: var(--color-jugadorX);
+}
+
+/* Color distintivo del jugador O */
+#jugadorO{
+    color: var(--color-jugadorO);
+}
+
+/* Utilizamos GRID para distribuir la cuadricula donde se va a jugar */
+#contenedor{
+    display: grid;
+    grid-template-columns: repeat(3, 70px);
+    grid-template-rows: repeat(3, 70px);
+    gap: var(--ceparacion-celdas);
+}
+
+/* Estilos de las celdas donde se van poder jugar */
+.celdas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--tamano-fichas);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: var(--curva-borde-jugador);
+    background-color: var(--color-fondo-jugadores);
+    transition: 0.3s;
+}
+
+.celdas:hover{
+    background-color: var(--color-hover-jugadores);
+}
+
+#reiniciarBtn {
+    background-color: var(--color-fondo-jugadores);
+    padding-top: var(--espacio-contenido-boton);
+    padding-bottom: var(--espacio-contenido-boton);
+    border: none;
+    border-radius: var(--curva-borde-jugador);
+    font-weight: 600;
+    font-size: 16px;
+    width: var(--tammano-boton);
+    margin-top: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#reiniciarBtn:hover{
+    background-color: var(--color-hover-jugadores);
 }
